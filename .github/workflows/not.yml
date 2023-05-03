@@ -12,4 +12,4 @@ jobs:
     steps:
     - name: Discord notification
       run: |
-        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header "Content-Type: application/json" -d "{content: Un nou push}"
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} --header "Content-Type: application/json" -d "{content: "Un nou push"}"
