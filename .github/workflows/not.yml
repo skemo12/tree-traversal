@@ -2,7 +2,8 @@ name: 😃 Notification
 
 on:
   push:
-
+    branches:
+      - main
 
 jobs:
   build:
@@ -11,5 +12,7 @@ jobs:
 
     steps:
     - name: Discord notification
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
-        curl --header "Content-Type: application/json" -d "{"content": "Un nou push"}"  ${{ secrets.DISCORD_WEBHOOK }}
+        curl --header "Content-Type: application/json" -d '{"content": "Un nou push"}' $DISCORD_WEBHOOK_URL
